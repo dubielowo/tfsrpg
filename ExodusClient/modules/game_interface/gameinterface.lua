@@ -973,14 +973,14 @@ function refreshViewMode()
   gameMapPanel:setVisibleDimension({ width = 15, height = 11 })
   
   if classic then  
-    g_game.changeMapAwareRange(29, 15)
+    g_game.changeMapAwareRange(15, 11)
     gameMapPanel:addAnchor(AnchorLeft, 'gameLeftActionPanel', AnchorRight)
     gameMapPanel:addAnchor(AnchorRight, 'gameRightActionPanel', AnchorLeft)
     gameMapPanel:addAnchor(AnchorBottom, 'gameBottomActionPanel', AnchorTop)
     gameMapPanel:addAnchor(AnchorTop, 'gameTopBar', AnchorBottom)
     gameMapPanel:setKeepAspectRatio(true)
     gameMapPanel:setLimitVisibleRange(false)
-    gameMapPanel:setZoom(13)
+    gameMapPanel:setZoom(11)
     gameMapPanel:setOn(false) -- frame
 
     modules.client_topmenu.getTopMenu():setImageColor('white')
@@ -989,16 +989,12 @@ function refreshViewMode()
       modules.game_console.switchMode(false)
     end
   else
-    g_game.changeMapAwareRange(29, 15)
+    g_game.changeMapAwareRange(15, 11)
     gameMapPanel:fill('parent')
     gameMapPanel:setKeepAspectRatio(false)
     gameMapPanel:setLimitVisibleRange(false)
     gameMapPanel:setOn(true)
-    if g_app.isMobile() then
-      gameMapPanel:setZoom(13)
-    else
-      gameMapPanel:setZoom(15)
-    end
+    gameMapPanel:setZoom(11)
                
     modules.client_topmenu.getTopMenu():setImageColor('#ffffff66')  
     if g_app.isMobile() then

@@ -38,8 +38,9 @@
      m_keepAspectRatio = true;
      m_limitVisibleRange = false;
      m_aspectRatio = m_mapView->getVisibleDimension().ratio();
-     m_maxZoomIn = 3;
-     m_maxZoomOut = 513;
+    // Lock zoom to the standard OTClient viewport (15x11 tiles) to avoid custom camera scaling
+     m_maxZoomIn = m_zoom;
+     m_maxZoomOut = m_zoom;
      m_mapRect.resize(1,1);
      g_map.addMapView(m_mapView);
  }
